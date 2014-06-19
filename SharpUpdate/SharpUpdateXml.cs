@@ -145,7 +145,7 @@ namespace SharpUpdate
 
                 return new SharpUpdateXml(version, new Uri(url), fileName, md5, description, launchArgs);
             }
-			catch { MessageBox.Show("error");  return null; }
+			catch { return null; }
         }
     }
 }
