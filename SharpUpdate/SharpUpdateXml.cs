@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace SharpUpdate
@@ -122,8 +123,9 @@ namespace SharpUpdate
             try
             {
                 // Load the document
-                XmlDocument doc = new XmlDocument();
-                doc.Load(location.AbsoluteUri);
+				ServicePointManager.ServerCertificateValidationCallback = (s, ce, ch, ssl) => true;
+				XmlDocument doc = new XmlDocument();
+				doc.Load(location.AbsoluteUri);
 
                 // Gets the appId's node with the update info
                 // This allows you to store all program's update nodes in one file
@@ -143,7 +145,7 @@ namespace SharpUpdate
 
                 return new SharpUpdateXml(version, new Uri(url), fileName, md5, description, launchArgs);
             }
-            catch { return null; }
+			catch { MessageBox.Show("error");  return null; }
         }
     }
 }

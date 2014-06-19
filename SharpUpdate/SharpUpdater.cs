@@ -55,10 +55,10 @@ namespace SharpUpdate
             ISharpUpdatable application = (ISharpUpdatable)e.Argument;
 
             // Check for update on server
-            if (!SharpUpdateXml.ExistsOnServer(application.UpdateXmlLocation))
-                e.Cancel = true;
-            else // Parse update xml
-                e.Result = SharpUpdateXml.Parse(application.UpdateXmlLocation, application.ApplicationID);
+			if (!SharpUpdateXml.ExistsOnServer(application.UpdateXmlLocation))
+				e.Cancel = true;
+			else // Parse update xml
+				e.Result = SharpUpdateXml.Parse(application.UpdateXmlLocation, application.ApplicationID);
         }
 
         /// <summary>

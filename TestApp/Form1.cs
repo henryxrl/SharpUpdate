@@ -46,7 +46,7 @@ namespace TestApp
 
         public Uri UpdateXmlLocation
         {
-			get { return new Uri("https://github.com/henryxrl/SharpUpdate/blob/master/project.xml"); }
+			get { return new Uri("https://raw.githubusercontent.com/henryxrl/SharpUpdate/master/project.xml"); }
         }
 
         public Form Context
