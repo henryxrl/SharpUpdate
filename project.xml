@@ -4,7 +4,7 @@
         <version>2.0.0.0</version> 
         <url>https://raw.githubusercontent.com/henryxrl/SharpUpdate/master/TestApp/bin/Debug/TestApp.exe</url> 
         <fileName>TestApp2.exe</fileName> 
-        <md5>F6D695444957936457B530A3CB5048F0</md5>
+        <md5>BF18831AFD5BE340ABF2FF18C536B783</md5>
         <description>intinal update</description> 
         <launchArgs></launchArgs> 
     </update> 
