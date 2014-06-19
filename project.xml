@@ -1,11 +1,11 @@
 <?xml version="1.0"?> 
 <sharpUpdate> 
     <update appID="TestApp"> 
-        <version>2.0.0.0</version> 
+        <version>3.0.0.0</version> 
         <url>https://raw.githubusercontent.com/henryxrl/SharpUpdate/master/TestApp/bin/Debug/TestApp.exe</url> 
-        <fileName>TestApp2.exe</fileName> 
-        <md5>BF18831AFD5BE340ABF2FF18C536B783</md5>
-        <description>intinal update</description> 
+        <fileName>TestApp.exe</fileName> 
+        <md5>F16F9270971EAEAE8E313B32E8FF0814</md5>
+        <description>Update: 06/19/2014:\n1. Added notification message when the current version is already the latest.</description> 
         <launchArgs></launchArgs> 
     </update> 
 </sharpUpdate>

@@ -143,7 +143,7 @@ namespace SharpUpdate
                 description = updateNode["description"].InnerText;
                 launchArgs = updateNode["launchArgs"].InnerText;
 
-                return new SharpUpdateXml(version, new Uri(url), fileName, md5, description, launchArgs);
+				return new SharpUpdateXml(version, new Uri(url), fileName, md5, description, launchArgs);
             }
 			catch { return null; }
         }
