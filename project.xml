@@ -1,8 +1,8 @@
 <?xml version="1.0"?> 
 <SharpUpdate> 
-    <update appId="voormense"> 
-        <version>1.0.0.1</version> 
-        <url>https://github.com/henryxrl/SharpUpdate/TestApp/bin/Debug/TestApp.exe</url> 
+    <update appID="TestApp"> 
+        <version>2.0.0.0</version> 
+        <url>https://github.com/henryxrl/SharpUpdate/blob/master/TestApp/bin/Debug/TestApp.exe</url> 
         <filename>TestApp2.exe</filename> 
         <description>intinal update</description> 
         <launchArgs></launchArgs> 
