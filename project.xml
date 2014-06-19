@@ -1,10 +1,11 @@
 <?xml version="1.0"?> 
-<SharpUpdate> 
+<sharpUpdate> 
     <update appID="TestApp"> 
         <version>2.0.0.0</version> 
         <url>https://github.com/henryxrl/SharpUpdate/blob/master/TestApp/bin/Debug/TestApp.exe</url> 
         <filename>TestApp2.exe</filename> 
+        <md5>F6D695444957936457B530A3CB5048F0</md5>
         <description>intinal update</description> 
         <launchArgs></launchArgs> 
     </update> 
-</SharpUpdate>
+</sharpUpdate>
