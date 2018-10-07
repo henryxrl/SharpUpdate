@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace SharpUpdate
@@ -11,7 +12,7 @@ namespace SharpUpdate
         /// <summary>
         /// The program to update's info
         /// </summary>
-        private ISharpUpdatable applicationInfo;
+        private SharpUpdateLocalAppInfo applicationInfo;
 
         /// <summary>
         /// The update info from the update.xml
@@ -28,21 +29,24 @@ namespace SharpUpdate
         /// </summary>
         /// <param name="applicationInfo"></param>
         /// <param name="updateInfo"></param>
-        internal SharpUpdateAcceptForm(ISharpUpdatable applicationInfo, SharpUpdateXml updateInfo)
+        internal SharpUpdateAcceptForm(SharpUpdateLocalAppInfo applicationInfo, SharpUpdateXml updateInfo, int num_cur_update, int num_total_update)
         {
             InitializeComponent();
 
             this.applicationInfo = applicationInfo;
             this.updateInfo = updateInfo;
 
-            this.Text = this.applicationInfo.ApplicationName + " - Update Available";
+            this.Text = string.Format("{0} - ({1}/{2}) Available Update", this.applicationInfo.ApplicationName, num_cur_update, num_total_update);
+            //this.lblUpdateAvail.Text = "An update for \"" + this.applicationInfo.ApplicationID + "\" is available.\r\nWould you like to update?";
 
             // Assigns the icon if it isn't null
             if (this.applicationInfo.ApplicationIcon != null)
                 this.Icon = this.applicationInfo.ApplicationIcon;
 
             // Adds the update version # to the form
-            this.lblNewVersion.Text = String.Format("New Version: {0}", this.updateInfo.Version.ToString());
+            this.lblNewVersion.Text = updateInfo.Tag != JobType.REMOVE ? 
+                string.Format(updateInfo.Tag == JobType.UPDATE ? "Update: {0}\nNew Version: {1}" : "New: {0}\nVersion: {1}", Path.GetFileName(this.applicationInfo.ApplicationPath), this.updateInfo.Version.ToString()) : 
+                string.Format("Remove: {0}", Path.GetFileName(this.applicationInfo.ApplicationPath));
         }
 
         private void btnYes_Click(object sender, EventArgs e)

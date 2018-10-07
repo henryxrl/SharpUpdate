@@ -52,7 +52,7 @@
             this.lblUpdateAvail.Font = new System.Drawing.Font("Segoe UI", 13F);
             this.lblUpdateAvail.Location = new System.Drawing.Point(106, 8);
             this.lblUpdateAvail.Name = "lblUpdateAvail";
-            this.lblUpdateAvail.Size = new System.Drawing.Size(228, 56);
+            this.lblUpdateAvail.Size = new System.Drawing.Size(264, 56);
             this.lblUpdateAvail.TabIndex = 1;
             this.lblUpdateAvail.Text = "An update is available!\r\nWould you like to update?";
             this.lblUpdateAvail.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -60,15 +60,15 @@
             // lblNewVersion
             // 
             this.lblNewVersion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblNewVersion.Location = new System.Drawing.Point(143, 69);
+            this.lblNewVersion.Location = new System.Drawing.Point(122, 64);
             this.lblNewVersion.Name = "lblNewVersion";
-            this.lblNewVersion.Size = new System.Drawing.Size(154, 19);
+            this.lblNewVersion.Size = new System.Drawing.Size(237, 68);
             this.lblNewVersion.TabIndex = 2;
-            this.lblNewVersion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblNewVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnDetails
             // 
-            this.btnDetails.Location = new System.Drawing.Point(259, 108);
+            this.btnDetails.Location = new System.Drawing.Point(284, 157);
             this.btnDetails.Name = "btnDetails";
             this.btnDetails.Size = new System.Drawing.Size(75, 23);
             this.btnDetails.TabIndex = 3;
@@ -78,7 +78,7 @@
             // 
             // btnNo
             // 
-            this.btnNo.Location = new System.Drawing.Point(178, 108);
+            this.btnNo.Location = new System.Drawing.Point(203, 157);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(75, 23);
             this.btnNo.TabIndex = 4;
@@ -88,7 +88,7 @@
             // 
             // btnYes
             // 
-            this.btnYes.Location = new System.Drawing.Point(97, 108);
+            this.btnYes.Location = new System.Drawing.Point(122, 157);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(75, 23);
             this.btnYes.TabIndex = 5;
@@ -98,9 +98,9 @@
             // 
             // SharpUpdateAcceptForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 143);
+            this.ClientSize = new System.Drawing.Size(382, 203);
             this.Controls.Add(this.btnYes);
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnDetails);

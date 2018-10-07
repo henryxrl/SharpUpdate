@@ -1,12 +1,11 @@
-﻿using System;
-using System.Drawing;
+﻿using SharpUpdate;
+using System;
 using System.Reflection;
 using System.Windows.Forms;
-using SharpUpdate;
 
 namespace TestApp
 {
-    public partial class Form1 : Form, ISharpUpdatable
+    public partial class Form1 : Form
     {
         private SharpUpdater updater;
 
@@ -14,45 +13,15 @@ namespace TestApp
         {
             InitializeComponent();
 
-            this.label1.Text = this.ApplicationAssembly.GetName().Version.ToString();
-            updater = new SharpUpdater(this);
+            label1.Text = ProductName + "\n" + ProductVersion;
+
+            updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri("https://raw.githubusercontent.com/henryxrl/SharpUpdate/master/project.xml"));
+            //updater = new SharpUpdater(Assembly.GetExecutingAssembly(), this, new Uri(new System.IO.FileInfo(@"..\..\..\project.xml").FullName));       // for local testing
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             updater.DoUpdate();
         }
-
-        #region SharpUpdate
-        public string ApplicationName
-        {
-            get { return "TestApp"; }
-        }
-
-        public string ApplicationID
-        {
-            get { return "TestApp"; }
-        }
-
-        public Assembly ApplicationAssembly
-        {
-            get { return Assembly.GetExecutingAssembly(); }
-        }
-
-        public Icon ApplicationIcon
-        {
-            get { return this.Icon; }
-        }
-
-        public Uri UpdateXmlLocation
-        {
-			get { return new Uri("https://raw.githubusercontent.com/henryxrl/SharpUpdate/master/project.xml"); }
-        }
-
-        public Form Context
-        {
-            get { return this; }
-        }
-        #endregion
     }
 }

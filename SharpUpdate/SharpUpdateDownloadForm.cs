@@ -23,11 +23,6 @@ namespace SharpUpdate
         private BackgroundWorker bgWorker;
 
         /// <summary>
-        /// A temp file name to download to
-        /// </summary>
-        private string tempFile;
-
-        /// <summary>
         /// The MD5 hash of the file to download
         /// </summary>
         private string md5;
@@ -35,10 +30,7 @@ namespace SharpUpdate
         /// <summary>
         /// Gets the temp file path for the downloaded file
         /// </summary>
-        internal string TempFilePath
-        {
-            get { return this.tempFile; }
-        }
+        internal string TempFilePath { get; }
 
         /// <summary>
         /// Creates a new SharpUpdateDownloadForm
@@ -51,7 +43,7 @@ namespace SharpUpdate
                 this.Icon = programIcon;
 
             // Set the temp file name and create new 0-byte file
-            tempFile = Path.GetTempFileName();
+            TempFilePath = Path.GetTempFileName();
 
             this.md5 = md5;
 
@@ -66,7 +58,7 @@ namespace SharpUpdate
             bgWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgWorker_RunWorkerCompleted);
 
             // Download file
-            try { webClient.DownloadFileAsync(location, this.tempFile); }
+            try { webClient.DownloadFileAsync(location, this.TempFilePath); }
             catch { this.DialogResult = DialogResult.No; this.Close(); }
         }
 
@@ -76,7 +68,7 @@ namespace SharpUpdate
         private void webClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             // Update progressbar on download
-            this.lblProgress.Text = String.Format("Downloaded {0} of {1}", FormatBytes(e.BytesReceived, 1, true), FormatBytes(e.TotalBytesToReceive, 1, true));
+            this.lblProgress.Text = string.Format("Downloaded {0} of {1}", FormatBytes(e.BytesReceived, 1, true), FormatBytes(e.TotalBytesToReceive, 1, true));
             this.progressBar.Value = e.ProgressPercentage;
         }
 
@@ -99,7 +91,7 @@ namespace SharpUpdate
                 this.progressBar.Style = ProgressBarStyle.Marquee;
 
                 // Start the hashing
-                bgWorker.RunWorkerAsync(new string[] { this.tempFile, this.md5 });
+                bgWorker.RunWorkerAsync(new string[] { this.TempFilePath, this.md5 });
             }
         }
 
@@ -150,7 +142,7 @@ namespace SharpUpdate
             if (showByteType)
                 formatString += byteType;
 
-            return String.Format(formatString, newBytes);
+            return string.Format(formatString, newBytes);
         }
 
         private void bgWorker_DoWork(object sender, DoWorkEventArgs e)

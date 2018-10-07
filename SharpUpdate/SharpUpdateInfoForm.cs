@@ -11,7 +11,7 @@ namespace SharpUpdate
         /// <summary>
         /// Creates a new SharpUpdateInfoForm
         /// </summary>
-        internal SharpUpdateInfoForm(ISharpUpdatable applicationInfo, SharpUpdateXml updateInfo)
+        internal SharpUpdateInfoForm(SharpUpdateLocalAppInfo applicationInfo, SharpUpdateXml updateInfo)
         {
             InitializeComponent();
 
@@ -21,8 +21,11 @@ namespace SharpUpdate
 
             // Fill in the UI
             this.Text = applicationInfo.ApplicationName + " - Update Info";
-            this.lblVersions.Text = String.Format("Current Version: {0}\nUpdate version: {1}", applicationInfo.ApplicationAssembly.GetName().Version.ToString(),
-                updateInfo.Version.ToString());
+            this.lblVersions.Text = updateInfo.Tag == JobType.UPDATE ? 
+                string.Format("Current Version: {0}\nUpdate version: {1}", applicationInfo.Version.ToString(), updateInfo.Version.ToString()) : 
+                (updateInfo.Tag == JobType.ADD ? string.Format("Version: {0}", updateInfo.Version.ToString()) : 
+                "");
+
             this.txtDescription.Text = updateInfo.Description;
         }
 
