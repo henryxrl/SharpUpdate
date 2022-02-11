@@ -6,7 +6,7 @@
         <filePath>./TestApp.exe</filePath>
         <md5>F16F9270971EAEAE8E313B32E8FF0814</md5>
         <description>Update: 10/06/2018:
-        1. Updated a label.</description> 
+        1. Updated a labels.</description> 
         <launchArgs></launchArgs> 
     </update>
     <update> 
@@ -15,7 +15,7 @@
         <filePath>./SharpUpdate.dll</filePath>
         <md5>88237737FECE6C41EF6CD10AE4DC54C0</md5>
         <description>Update: 10/06/2018:
-        1. Support for multiple files updating.</description> 
+        1. Support for multiple files upddating.</description> 
         <launchArgs></launchArgs> 
     </update>
     <add> 
@@ -24,13 +24,13 @@
         <filePath>./test_add/SharpUpdate_test_add.dll</filePath>
         <md5>88237737FECE6C41EF6CD10AE4DC54C0</md5>
         <description>Add: 10/06/2018:
-        1. Test add.</description> 
+        1. Test adddd.</description> 
         <launchArgs></launchArgs> 
     </add>
     <remove>
         <filePath>./test_remove/SharpUpdate - Copy.dll</filePath>
         <description>Remove: 10/06/2018:
-        1. Test remove.</description> 
+        1. Test remoddve.</description> 
         <launchArgs></launchArgs> 
     </remove>
 </sharpUpdate>
